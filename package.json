@@ -1,22 +1,5 @@
 {
-  "name": "d2l-icons",
   "description": "SVG images, Polymer iron-iconset collections and SASS mixins for D2L icons",
-  "private": true,
-  "scripts": {
-    "build": "npm run build:scss && npm run build:iconsets",
-    "build:scss": "node ./cli/create-scss-cli -o icons.scss images/**/*.*",
-    "build:iconsets": "node ./cli/create-iconset-cli images/tier1 images/tier2 images/tier3 images/html-editor images/emoji",
-    "postinstall": "polymer install --variants",
-    "test": "npm run test:lint && npm run build && npm run test:unit:local",
-    "test:lint": "npm run test:lint:js",
-    "test:lint:js": "eslint *.html demo/*.html cli/*.js",
-    "test:lint:wc": "polymer lint -i *.html",
-    "test:unit:local": "polymer test --skip-plugin sauce"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/BrightspaceUI/icons.git"
-  },
   "keywords": [
     "d2l",
     "ui",
@@ -27,14 +10,34 @@
     "polymer",
     "web component"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BrightspaceUI/icons.git"
+  },
+  "homepage": "https://github.com/BrightspaceUI/icons",
+  "name": "d2l-icons",
+  "scripts": {
+    "build": "npm run build:scss && npm run build:iconsets",
+    "build:scss": "node ./cli/create-scss-cli -o icons.scss images/**/*.*",
+    "build:iconsets": "node ./cli/create-iconset-cli images/tier1 images/tier2 images/tier3 images/html-editor images/emoji",
+    "test": "npm run test:lint && npm run build && npm run test:unit:local",
+    "test:lint": "npm run test:lint:js",
+    "test:lint:js": "eslint .",
+    "test:lint:wc": "polymer lint --npm",
+    "test:unit:local": "polymer test --npm --skip-plugin sauce"
+  },
   "author": "D2L Corporation",
   "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/BrightspaceUI/icons/issues"
   },
-  "homepage": "https://github.com/BrightspaceUI/icons",
   "devDependencies": {
+    "@polymer/iron-component-page": "^3.0.0-pre.18",
+    "@polymer/iron-demo-helpers": "^3.0.0-pre.18",
+    "@webcomponents/webcomponentsjs": "^2.0.2",
+    "babel-eslint": "^8.2.5",
     "chalk": "^1.1.1",
+    "d2l-typography": "git+https://github.com/BrightspaceUI/typography.git#polymer-3",
     "eslint": "^4.15.0",
     "eslint-config-brightspace": "^0.4.0",
     "eslint-plugin-html": "^4.0.1",
@@ -45,7 +48,22 @@
     "q": "^1.4.1",
     "through2": "^2.0.1",
     "vinyl-fs": "^2.3.1",
+    "wct-browser-legacy": "^0.0.1-pre.11",
     "xml2js": "^0.4.16",
     "yargs": "^4.1.0"
+  },
+  "version": "6.0.0",
+  "resolutions": {
+    "inherits": "2.0.3",
+    "samsam": "1.1.3",
+    "supports-color": "3.1.2",
+    "type-detect": "1.0.0",
+    "@webcomponents/webcomponentsjs": "2.0.0-beta.2"
+  },
+  "main": "d2l-icons.js",
+  "dependencies": {
+    "@polymer/iron-iconset-svg": "^3.0.0-pre.18",
+    "@polymer/polymer": "^3.0.0",
+    "d2l-colors": "git+https://github.com/BrightspaceUI/colors.git#polymer-3"
   }
 }
