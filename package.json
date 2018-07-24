@@ -1,5 +1,6 @@
 {
   "description": "SVG images, Polymer iron-iconset collections and SASS mixins for D2L icons",
+  "private": true,
   "keywords": [
     "d2l",
     "ui",
@@ -20,11 +21,12 @@
     "build": "npm run build:scss && npm run build:iconsets",
     "build:scss": "node ./cli/create-scss-cli -o icons.scss images/**/*.*",
     "build:iconsets": "node ./cli/create-iconset-cli images/tier1 images/tier2 images/tier3 images/html-editor images/emoji",
-    "test": "npm run test:lint && npm run build && npm run test:unit:local",
-    "test:lint": "npm run test:lint:js",
-    "test:lint:js": "eslint .",
-    "test:lint:wc": "polymer lint --npm",
-    "test:unit:local": "polymer test --npm --skip-plugin sauce"
+    "lint": "npm run lint:html && npm run lint:wc",
+    "lint:html": "eslint *.js *.html demo/*.html cli/*.js",
+    "lint:wc": "polymer lint --npm *.js",
+    "test": "npm run lint && npm run build && npm run test:polymer:local",
+    "test:polymer:local": "polymer test --npm --skip-plugin sauce",
+    "test:polymer:sauce": "polymer test --npm --skip-plugin local"
   },
   "author": "D2L Corporation",
   "license": "Apache-2.0",
