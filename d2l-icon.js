@@ -60,6 +60,10 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-icon">
                 height: var(--d2l-icon-height, 30px);
                 width: var(--d2l-icon-width, 30px);
             }
+			/* required since display of inline-block is non-default */
+			:host([hidden]) {
+				display: none;
+			}
         </style>
     </template>
     
